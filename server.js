@@ -10,5 +10,5 @@ app.get('/', function(req, res, next) {
     res.render('sahil_hawal', { title: 'Hello World!' });
 });
 
-app.listen(3000)
+app.listen(process.env.PORT)
 console.log("server started")
