@@ -1,0 +1,724 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+        <link href="//db.onlinewebfonts.com/c/3a47f5f06b5484abfeee9eac90348a9c?family=Gotham" rel="stylesheet" type="text/css"/>
+        <title>Sahil Hawal</title>
+    <style>
+        @import url(//db.onlinewebfonts.com/c/3a47f5f06b5484abfeee9eac90348a9c?family=Gotham);
+        @font-face {font-family: "Gotham"; src: url("//db.onlinewebfonts.com/t/3a47f5f06b5484abfeee9eac90348a9c.eot"); src: url("//db.onlinewebfonts.com/t/3a47f5f06b5484abfeee9eac90348a9c.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3a47f5f06b5484abfeee9eac90348a9c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3a47f5f06b5484abfeee9eac90348a9c.woff") format("woff"), url("//db.onlinewebfonts.com/t/3a47f5f06b5484abfeee9eac90348a9c.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3a47f5f06b5484abfeee9eac90348a9c.svg#Gotham") format("svg"); }
+    body{
+        overflow-x: hidden;
+        background:black;
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .introduction{
+        background-color: black;
+        width: 100%;
+    }
+    .introduction .row{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .display_pic{
+        text-align: center;
+        padding: 0px;
+    }
+    .introduction img{
+        text-align: center;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+    }
+    .introduction h1{
+        font-family: 'Russo One';
+        color: #eece1a;    
+        font-size: 70px;
+    }
+    .introduction p{
+        color: aliceblue;
+        font-size: 17px;
+        padding-top: 10px;
+    }
+    .timeline{
+        position: relative;
+        margin: 50px auto;
+        padding: 40px 0;
+        box-sizing: border-box;
+    }
+    .timeline::before{
+        content: "";
+        position: absolute;
+        width: 5px;
+        left: 50%;
+        background: whitesmoke;
+        height: 100%;
+    }
+    .timeline ul{
+        padding: 0px;
+        margin: 0px;
+    }
+    .timeline ul li{
+        list-style: none;
+        width: 50%;
+        position: relative;
+        padding: 20px 40px;
+        box-sizing: border-box;
+    }
+    .timeline ul li:nth-child(odd){
+        float: left;
+        text-align: right;
+        clear: both;
+    }
+    .timeline ul li:nth-child(even){
+        float: right;
+        text-align: left;
+        clear: both;
+    }
+    .content{
+        padding: 20px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        background-color: black;
+        border-radius: 20px;
+        padding-bottom: 20px;
+        text-align: justify;
+        box-shadow: 0px 0px 15px #000000;
+    }
+    .timeline ul li:nth-child(odd)::before{
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color:#eece1a;
+        right: -15px;
+        top: 24px;
+    }
+    .timeline ul li:nth-child(even)::before{
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color:#eece1a;
+        left: -10px;
+        top: 24px;
+    }
+    .timeline ul li h3{
+        margin: 0px;
+        padding: 0px;
+        color: #eece1a;
+    }
+    .timeline ul li p{
+        margin: 10px 10px 0;
+        padding: 0px;
+        color: #f2f2f2;
+    }
+    .timeline ul li h4{
+        margin: 0px;
+        padding: 0px;
+    }
+    .timeline ul li:nth-child(odd) .date{
+        position: absolute;
+        top:12px;
+        right: -165px;
+        background-color: #8a023b;
+        border-radius: 25px;
+        padding: 5px 10px;
+        margin: 0px !important;
+        color: white
+    
+    }
+    .timeline ul li:nth-child(even) .date{
+        position: absolute;
+        top:12px;
+        left: -165px;
+        background-color: #8a023b;
+        border-radius: 25px;
+        padding: 5px 10px;
+        margin: 0px !important;
+        color: white
+    }
+    
+    .divider{
+        width: 40%;
+        background-color: #eece1a;
+        height: 3px;
+        display: block;
+    }
+    .divider1{
+        width: 20%;
+        background-color: #eece1a;
+        height: 3px;
+        display: block;
+        margin-bottom: 50px;
+    }
+    .divider2{
+        width: 6%;
+        background-color: #eece1a;
+        height: 3px;
+        display: block;
+    }
+    .expirirence{
+        padding: 25px;
+        background: #1f1f1f;;
+    }
+    .expirirence h2{
+        font-size: 60px;
+        color: #f2f2f2;
+        font-family: 'Russo One';
+    }
+    .date h5{
+        margin: 0px;
+    }
+    .date{
+        box-shadow: 0px 0px 15px #000000;
+    }
+    .skills{
+        background: black;
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+    .skills h2{
+        font-size: 3rem;
+        color: #f5f3f3;
+        font-family: 'Russo One';
+        margin-bottom: 0px;
+        margin-top: 40px;
+    }
+    .logo{
+        margin: auto;
+        text-align: center;
+    }
+    .logo img{
+        width: 110px;
+        padding: 15px;
+    }
+    .development{
+        margin-top: 40px;
+    }
+    .knowledge-heading h2{
+        font-size: 3rem;
+        color: white;
+        background: black;
+        font-family: 'Russo One';
+        margin: 0px;
+        padding-top: 40px;
+    }
+    .knowledge-heading{
+        background: black;
+    }
+    .knowledge{
+        background: black;
+        padding-bottom: 40px;
+        padding-top:25px;
+    }
+    .foot{
+        background: #eece1a;
+        height: 180px;
+    }
+    .foot-content{
+        text-align: right;
+        text-align: right;
+        padding-top: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .res-pr{
+        max-width: 65px;
+        position: absolute;
+        right: 445px !important;
+        box-shadow: 0px 0px 60px;
+        margin-top: 165px;
+    }
+    @media only screen and (max-width: 600px) {
+        .res-pr{
+        width: 50px  !important;
+        position: absolute;
+        right: 10px !important;
+        box-shadow: 0px 0px 60px;
+        margin-top: 50px;
+    }
+        .timeline::before{
+        left: 0%;
+        }
+        .timeline ul li {
+        width: 100%;
+        padding: 20px 15px;
+        }
+        .timeline ul li:nth-child(odd)::before {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #eece1a;
+        left: -10px;
+        top: 0px;
+        }
+        .timeline ul li:nth-child(even)::before {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #eece1a;
+        left: -10px;
+        top: 0px;
+        }
+        .timeline ul li:nth-child(even) {
+        float: none;
+        text-align: left;
+        clear: both;
+    }
+    
+    .timeline ul li:nth-child(odd) .date{
+        position: absolute;
+        top: -8px;
+        right: 183px;
+        background-color: #8a023b;
+        border-radius: 25px;
+        padding: 5px 10px;
+        margin: 0px !important;
+        color: white
+    
+    }
+    .timeline ul li:nth-child(even) .date{
+        position: absolute;
+        top: -8px;
+        left: 25px;
+        background-color: #8a023b;
+        border-radius: 25px;
+        padding: 5px 10px;
+        margin: 0px !important;
+        color: white
+    }
+    .skills h2 {
+        font-size: 2rem;
+        color: #f5f3f3;
+        font-family: 'Russo One';
+        margin-bottom: 0px;
+        margin-top: 40px;
+    }
+        .orig-img{
+            width: 275px  !important;
+        }
+            
+        .project-info h3{
+            text-align: center;
+            font-size: 1.5rem;
+            color: #eece1a;
+            margin: auto;
+            font-family: "Gotham";
+        
+        }
+        .project-info p{
+            font-size: 0.8rem;
+            margin: auto;
+            width: 330px;
+            color: whitesmoke;
+            text-align: center;
+        }
+       
+    }
+    .soc {
+        display: block;
+        font-size: 0;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+    }
+    .soc .soc-item {
+        display: inline-block;
+        margin: 1rem .5rem;
+    }
+    #footer {
+        background: #eece1a;
+        height: 200px;
+        min-height: 100px;
+        color: #f2f2f2;
+    }
+    .section {
+        width: 100%;
+        height: auto;
+        min-height: 700px;
+        padding: 0;
+        overflow: hidden;
+        color: #f2f2f2;
+        position: relative;
+    }
+    #footer .section-wrapper {
+        padding: 30px 0 40px;
+    }
+    #footer .copyright-wrapper {
+        margin-top: 25px;
+        font-size: 13px;
+        color: #333333;
+        font-weight: 500;
+        font-family: "Whitney",Helvetica,Arial,sans-serif;
+        text-align: center;
+    }
+    #footer .copyright-wrapper p {
+        margin: 0;
+        color: #333333;
+    }
+    .section .section-wrapper p {
+        font-size: 1.3em;
+        line-height: 1.5em;
+    }
+    .twitter img{
+        width: 25px;
+    }
+    .instagram img{
+        width: 25px;
+    }
+    .linkedin img{
+        width: 25px;
+    }
+    .github img{
+        width: 40px;
+    }
+    .email img{
+        width: 30px;
+    }
+    .projects .photos-sec{
+        padding:40px;
+        margin-top: 40px;
+    }
+    
+    .orig-img{
+        margin: auto;
+        max-width: 550px;
+    }
+    
+    .projects{
+        margin-bottom: 100px;
+    }
+    .projects h2{
+        font-size: 3rem;
+        color: #f5f3f3;
+        font-family: 'Russo One';
+        margin-bottom: 0px;
+        margin-top: 40px;
+    }
+    .project-info h3{
+        text-align: center;
+        font-size: 2rem;
+        color: #eece1a;
+        margin: auto;
+        font-family: "Gotham";
+       
+    }
+    .project-info p{
+        font-size: 1rem;
+        margin: auto;
+        max-width: 600px;
+        color: whitesmoke;
+    }
+    .react, .js, .node, .jquery{
+        width: 250px !important;
+    }
+    /*
+    .footer-border {
+      box-sizing: padding-box;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 40px solid transparent;
+      border-left: 50vw solid transparent;
+      border-right: 50vw solid deepskyblue;
+      border-bottom: 40px solid deepskyblue;
+    }
+    
+    .footer{
+        height: 30px;
+        background: #eece1a;
+    }
+    */
+    
+    </style>
+    </head>
+    <body>
+        <div id="welcome">        
+        </div>
+        <div class="container-fluid introduction">
+            <div class="row">
+                <div class="col-lg-6 col-12 display_pic">
+                    <img src="assets/Sahil_hawal1.JPG" alt="">
+                </div>
+                <div class="col-lg-6 col-12">
+                    <h1>Hey, I'm Sahil</h1>
+                    <span class="divider"></span>
+                    <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fuga aspernatur ea dolores beatae earum enim consequuntur eos, obcaecati possimus.</p>
+                </div> 
+            </div>    
+        </div>  
+        <div class="container-fluid expirirence">
+            <h2>Experience</h2>
+            <span class="divider1"></span>
+            <div class="timeline">
+                <ul>
+                    <li>
+                        <div class="content">
+                            <h3>Sterimax Engineering</h3>
+                            <h4>Assistant Toolroom Supervisor</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus reprehenderit sunt, earum repellendus eum veniam nobis porro vero odit!</p>
+                        </div>
+                        <div class="date">
+                            <h5><span class="glyphicon glyphicon-calendar"></span> 1 Oct 2018</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content">
+                            <h3>Sygina Data System</h3>
+                            <h4>Software Engineer</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus reprehenderit sunt, earum repellendus eum veniam nobis porro vero odit!</p>
+                        </div>
+                        <div class="date">
+                            <h5><span class="glyphicon glyphicon-calendar"></span> 1 Oct 2018</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content">
+                            <h3>Sterimax Engineering</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus reprehenderit sunt, earum repellendus eum veniam nobis porro vero odit!</p>
+                        </div>
+                        <div class="date">
+                            <h5><span class="glyphicon glyphicon-calendar"></span>1 Oct 2018</h5>
+                        </div>
+                    </li>
+                    <div style="clear: both;"></div>
+                </ul>
+            </div>
+        </div>
+        <!-- 
+        <div class="skills container-fluid">
+            <h2>DEVELOPMENT</h2>
+            <span class="divider2"></span>
+            <div class="development row">            
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/react.png" alt="">
+                </div>
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/js.png" alt="">
+                </div>
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/html5.png" alt="">
+                </div>
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/css.png" alt="">
+                </div>
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/jquery.png" alt="">
+                </div>                                                
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/node.png" alt="">
+                </div>  
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/gimp.png" alt="">
+                </div> 
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/github-white.png" alt="">
+                </div>
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/p5.png" alt="">
+                </div> 
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/redux.png" alt="">
+                </div>
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/git.png" alt="">
+                </div> 
+                <div class="col-lg-1 col-4 logo">
+                    <img src="/assets/go daddy.png" alt="">
+                </div>                       
+            </div>
+        </div>
+        -->
+        <div class="skills container-fluid">
+            <h2>DEVELOPMENT</h2>
+            <span class="divider2"></span>
+            <div class="development row">            
+                <div class="col-lg-4 col-12 logo">
+                    <img src="/assets/react.png" class="react" alt="">
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/html5.png" class="html" alt="">
+                        </div>
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/css.png" class="css" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/redux.png" class="redux" alt="">
+                        </div>
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/p5.png" class="p5" alt="">
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 logo">
+                    <img src="/assets/js.png" class="js" alt="">
+                </div>
+                <div class="col-lg-2 col-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/github-white.png" class="github" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/go daddy.png" class="go_daddy" alt="">
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 logo">
+                    <img src="/assets/jquery.png" class="jquery" alt="">
+                </div>                                                
+                <div class="col-lg-4 col- logo">
+                    <img src="/assets/node.png" class="node" alt="">
+                </div> 
+                 <div class="col-lg-2 col-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/gimp.png" class="gimp" alt="">
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-6 logo">
+                            <img src="/assets/git.png" class="git" alt="">
+                        </div>  
+                    </div>
+                </div>                                                       
+            </div>
+        </div>
+        <div class="projects container-fluid">
+            <h2>PROJECTS</h2>   
+            <span class="divider2"></span>
+            <div class="row photos-sec">
+                <img class="orig-img" src="/assets/trek_with_tramps.PNG" alt="">
+                <img style="width: 65px;position: absolute;" class="res-pr" src="/assets/trekwithtramps_respoonsive.PNG" alt="">
+            </div>
+            <div class="row project-info">
+                <h3 class="col-lg-12">TREK WITH TRAMPS</h3>
+                <p class="p-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, nulla voluptatibus aperiam tempora magni, tenetur mollitia aliquam quidem modi voluptas cum facere a delectus?</p>
+            </div>
+        </div>
+        <section id="footer" class="container-fluid section">
+            <div class="section-wrapper"> 
+                <ul class="soc"> 
+                    <li class="soc-item soc-logo"><a href="#" target="_blank" class="icon email" title="email"><img src="assets/email.png" alt="email"></a></li> 
+                    <li class="soc-item soc-logo"><a href="#" target="_blank" class="icon twitter" title="twitter"><img src="assets/twitter.png" alt="twitter"></a></li> 
+                    <li class="soc-item soc-logo"><a href="#" target="_blank" class="icon instagram" title="instagram"><img src="assets/instagram.png" alt="instagram"></a></li> 
+                    <li class="soc-item soc-logo"><a href="#" target="_blank" class="icon github" title="github"><img src="assets/github.png" alt="github"></a></li> 
+                    <li class="soc-item soc-logo"><a href="#" target="_blank" class="icon linkedin" title="linkedin"><img src="assets/linkedi-black.png" alt="linkedin"></a></li>
+                </ul>
+                <div class="copyright-wrapper center"> <p>©&nbsp;&nbsp;Sahil Hawal 2020</p> </div>
+             </div>
+        </section>
+    </body>
+    <script>
+        
+    const Particles = [];
+    let font
+    let fontsize = 120;
+    
+    function preload() {
+         font = loadFont('assets/NotoSansKR-Regular.otf');
+      }
+    
+    function setup(){
+        var canvas = createCanvas(window.innerWidth,window.innerHeight)
+        canvas.parent('welcome');
+        var particleLength = Math.floor(window.innerWidth / 10)
+        
+        for(let i=0; i < particleLength; i++){
+            Particles.push(new particle()) 
+        }
+    
+    }
+    
+    function draw(){
+        background('#1f1f1f')
+        Particles.forEach((p,index) => {
+            p.update()
+            p.draw(); 
+            p.checkParticles(Particles.slice(index));       
+        });
+        textFont(font)
+        textSize(fontsize)
+        textAlign(CENTER, CENTER)
+        fill('#eece1a')
+        text('Sahil',165, 250)
+        fill('#eece1a')
+        text('Hawal.',210, 400)
+        textSize(30)
+        fill('white')
+        text('Software Engineer',160, 530)
+        //text('_______',230, 380)
+    
+    }
+    
+    class particle {
+        constructor(){
+            this.pos = createVector(random(width),random(height))
+            this.vel = createVector(random(2,-2),random(2,-2))
+            this.size = 10
+        }
+    
+        update(){
+            this.pos.add(this.vel)
+            this.edges()
+        }
+    
+        draw(){
+            noStroke()
+            //fill('#eece1a')
+            fill('rgba(255, 255, 255, 0.5')
+            circle(this.pos.x, this.pos.y, this.size)
+        }
+    
+        edges(){
+            if (this.pos.x > width || this.pos.x < 0){
+                this.vel.x *= -1
+            }
+            if (this.pos.y > height || this.pos.y < 0){
+                this.vel.y *= -1
+            }
+        }
+    
+        checkParticles(particles) {
+            particles.forEach(particle => {
+                const d = dist(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
+                if(d < 120) {
+                    const alpha = map(d, 0, 120, 0, 0.25)
+                    stroke(`rgba(255, 255, 255, ${alpha})`);
+                    line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y)
+                    //console.log(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y)
+                }
+            });
+        }
+    }
+    
+    
+    
+    </script>
+    </html>
